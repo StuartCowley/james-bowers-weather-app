@@ -20,7 +20,7 @@ body {
     rgba(158, 233, 83, 0.6) 89%,
     rgba(204, 235, 51, 0.6) 95%,
     rgba(255, 234, 0, 0.6) 100%
-), url('../../public/images/rainy-rainbow.jpg');
+), url('../../public/images/rainy-rainbow.webp');
 background-size: cover;  
 background-repeat: no-repeat;
   background-attachment: fixed;
