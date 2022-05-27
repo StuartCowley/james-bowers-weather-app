@@ -11,8 +11,10 @@ function ForecastSummary(props) {
       <div className="forecast-summary__icon">
         <WeatherIcon name="owm" iconId={icon} />
       </div>
+      <div className="forecast-summary__maxTemp">
+        <p className="forecast-summary__maxTemp">{temperature.max}°C</p>
+      </div>
       <div className="forecast-summary__description">{description}</div>
-      <div className="forecast-summary__maxTemp">{temperature.max}</div>
     </div>
   );
 }
