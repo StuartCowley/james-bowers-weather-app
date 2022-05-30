@@ -4,7 +4,7 @@ import WeatherIcon from "react-icons-weather";
 
 function ForecastSummary(props) {
   const { date, description, icon, temperature } = props;
-  const formattedDate = new Date(date).toDateString();
+  const formattedDate = new Date(date).toDateString().slice(0, 10);
   return (
     <div className="forecast-summary">
       <div className="forecast-summary__date">{formattedDate}</div>
