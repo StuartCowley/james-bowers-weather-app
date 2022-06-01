@@ -56,4 +56,12 @@ describe("ForecastSummaries", () => {
 
     expect(asFragment()).toMatchSnapshot();
   });
+
+  it("renders the correct amount of summaries", () => {
+    const { getAllByTestId } = render(
+      <ForecastSummaries forecasts={validProps} />
+    );
+
+    expect(getAllByTestId("forecast-summary")).toHaveLength(validProps.length);
+  });
 });
