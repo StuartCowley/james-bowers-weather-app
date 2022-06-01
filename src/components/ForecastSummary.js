@@ -6,9 +6,9 @@ function ForecastSummary(props) {
   const { date, description, icon, temperature } = props;
   const formattedDate = new Date(date).toDateString().slice(0, 10);
   return (
-    <div className="forecast-summary">
+    <div className="forecast-summary" data-testid="forecast-summary">
       <div className="forecast-summary__date">{formattedDate}</div>
-      <div className="forecast-summary__icon">
+      <div className="forecast-summary__icon" data-testid="forecast-icon">
         <WeatherIcon name="owm" iconId={icon} />
       </div>
       <div className="forecast-summary__maxTemp">

@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ForecastSummaries renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="forecast-summaries"
+  >
+    <div
+      class="forecast-summary"
+      data-testid="forecast-summary"
+    >
+      <div
+        class="forecast-summary__date"
+      >
+        Fri Mar 18
+      </div>
+      <div
+        class="forecast-summary__icon"
+        data-testid="forecast-icon"
+      >
+        <i
+          class="wi wi-day-sunny"
+          name="owm"
+        />
+      </div>
+      <div
+        class="forecast-summary__maxTemp"
+      >
+        <p
+          class="forecast-summary__maxTemp"
+        >
+          22°C
+        </p>
+      </div>
+      <div
+        class="forecast-summary__description"
+      >
+        Stub description
+      </div>
+    </div>
+    <div
+      class="forecast-summary"
+      data-testid="forecast-summary"
+    >
+      <div
+        class="forecast-summary__date"
+      >
+        Sat Jun 02
+      </div>
+      <div
+        class="forecast-summary__icon"
+        data-testid="forecast-icon"
+      >
+        <i
+          class="wi wi-day-thunderstorm"
+          name="owm"
+        />
+      </div>
+      <div
+        class="forecast-summary__maxTemp"
+      >
+        <p
+          class="forecast-summary__maxTemp"
+        >
+          17°C
+        </p>
+      </div>
+      <div
+        class="forecast-summary__description"
+      >
+        Stub description2
+      </div>
+    </div>
+    <div
+      class="forecast-summary"
+      data-testid="forecast-summary"
+    >
+      <div
+        class="forecast-summary__date"
+      >
+        Sun Aug 18
+      </div>
+      <div
+        class="forecast-summary__icon"
+        data-testid="forecast-icon"
+      >
+        <i
+          class="wi wi-day-snow"
+          name="owm"
+        />
+      </div>
+      <div
+        class="forecast-summary__maxTemp"
+      >
+        <p
+          class="forecast-summary__maxTemp"
+        >
+          18°C
+        </p>
+      </div>
+      <div
+        class="forecast-summary__description"
+      >
+        Stub description3
+      </div>
+    </div>
+    <div
+      class="forecast-summary"
+      data-testid="forecast-summary"
+    >
+      <div
+        class="forecast-summary__date"
+      >
+        Mon Nov 03
+      </div>
+      <div
+        class="forecast-summary__icon"
+        data-testid="forecast-icon"
+      >
+        <i
+          class="wi wi-tornado"
+          name="owm"
+        />
+      </div>
+      <div
+        class="forecast-summary__maxTemp"
+      >
+        <p
+          class="forecast-summary__maxTemp"
+        >
+          19°C
+        </p>
+      </div>
+      <div
+        class="forecast-summary__description"
+      >
+        Stub description4
+      </div>
+    </div>
+    <div
+      class="forecast-summary"
+      data-testid="forecast-summary"
+    >
+      <div
+        class="forecast-summary__date"
+      >
+        Tue Jan 18
+      </div>
+      <div
+        class="forecast-summary__icon"
+        data-testid="forecast-icon"
+      >
+        <i
+          class="wi wi-day-haze"
+          name="owm"
+        />
+      </div>
+      <div
+        class="forecast-summary__maxTemp"
+      >
+        <p
+          class="forecast-summary__maxTemp"
+        >
+          24°C
+        </p>
+      </div>
+      <div
+        class="forecast-summary__description"
+      >
+        Stub description5
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
