@@ -7,7 +7,12 @@ function ForecastDetails({ forecast }) {
   const formattedDate = new Date(date).toDateString().slice(0, 10);
   return (
     <div className="forecast-details">
-      <div className="forecast-details__date">{formattedDate}</div>
+      <div
+        className="forecast-details__date"
+        data-testid="forecast-details__date"
+      >
+        {formattedDate}
+      </div>
       <div className="forecast-details__temperature">
         <p className="forecast-details__heading">Temperature</p>
         <p>Max: {temperature.max}°C</p>
