@@ -37,6 +37,11 @@ exports[`ForecastSummaries renders correctly 1`] = `
       >
         Stub description
       </div>
+      <button
+        type="button"
+      >
+        More details
+      </button>
     </div>
     <div
       class="forecast-summary"
@@ -70,6 +75,11 @@ exports[`ForecastSummaries renders correctly 1`] = `
       >
         Stub description2
       </div>
+      <button
+        type="button"
+      >
+        More details
+      </button>
     </div>
     <div
       class="forecast-summary"
@@ -103,6 +113,11 @@ exports[`ForecastSummaries renders correctly 1`] = `
       >
         Stub description3
       </div>
+      <button
+        type="button"
+      >
+        More details
+      </button>
     </div>
     <div
       class="forecast-summary"
@@ -136,6 +151,11 @@ exports[`ForecastSummaries renders correctly 1`] = `
       >
         Stub description4
       </div>
+      <button
+        type="button"
+      >
+        More details
+      </button>
     </div>
     <div
       class="forecast-summary"
@@ -169,6 +189,11 @@ exports[`ForecastSummaries renders correctly 1`] = `
       >
         Stub description5
       </div>
+      <button
+        type="button"
+      >
+        More details
+      </button>
     </div>
   </div>
 </DocumentFragment>

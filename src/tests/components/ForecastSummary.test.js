@@ -11,6 +11,7 @@ describe("ForecastSummmary", () => {
       min: 12,
       max: 22,
     },
+    onSelect: () => {},
   };
   const formattedDate = new Date(validProps.date).toDateString().slice(0, 10);
 
@@ -21,6 +22,7 @@ describe("ForecastSummmary", () => {
         description={validProps.description}
         icon={validProps.icon}
         temperature={validProps.temperature}
+        onSelect={validProps.onSelect}
       />
     );
 
