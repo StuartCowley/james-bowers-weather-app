@@ -34,6 +34,8 @@ function ForecastDetails({ forecast }) {
   );
 }
 
+export default ForecastDetails;
+
 ForecastDetails.propTypes = {
   forecast: PropTypes.shape({
     date: PropTypes.number.isRequired,
@@ -48,5 +50,3 @@ ForecastDetails.propTypes = {
     humidity: PropTypes.number.isRequired,
   }).isRequired,
 };
-
-export default ForecastDetails;
