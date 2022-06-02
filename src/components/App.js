@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import LocationDetails from "./LocationDetails";
 import ForecastSummaries from "./ForecastSummaries";
 import ForecastDetails from "./ForecastDetails";
-/* eslint-disable  no-unused-vars */
 
 function App({ location, forecasts }) {
   const { city, country } = location;
