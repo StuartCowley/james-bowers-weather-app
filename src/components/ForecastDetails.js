@@ -27,7 +27,7 @@ function ForecastDetails({ forecast }) {
           <p>Speed: {wind.speed}m/s</p>
         </div>
         <div className="forecast-details__wind-direction">
-          <p>Direction: {wind.direction}</p>
+          <p>Direction: {wind.direction.toUpperCase()}</p>
         </div>
       </div>
     </div>
