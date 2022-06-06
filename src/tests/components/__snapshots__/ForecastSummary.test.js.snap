@@ -35,6 +35,7 @@ exports[`ForecastSummmary renders correctly 1`] = `
       Stub description
     </div>
     <button
+      class="forecast-summary__more-details"
       type="button"
     >
       More details

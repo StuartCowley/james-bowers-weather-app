@@ -13,11 +13,13 @@ describe("ForecastSummmary", () => {
     },
     onSelect: () => {},
   };
+
   const formattedDate = new Date(validProps.date).toDateString().slice(0, 10);
 
   it("renders correctly", () => {
     const { asFragment } = render(
       <ForecastSummary
+        props={validProps}
         date={validProps.date}
         description={validProps.description}
         icon={validProps.icon}
@@ -36,6 +38,7 @@ describe("ForecastSummmary", () => {
         description={validProps.description}
         icon={validProps.icon}
         temperature={validProps.temperature}
+        onSelect={validProps.onSelect}
       />
     );
 
