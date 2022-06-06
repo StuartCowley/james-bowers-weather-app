@@ -7,7 +7,11 @@ function SearchForm({ searchText, setSearchText, onSubmit }) {
   return (
     <div className="search-form">
       <input type="text" onChange={handleInputChange} value={searchText} />
-      <button type="submit" onClick={onSubmit}>
+      <button
+        type="submit"
+        onClick={onSubmit}
+        data-testid="search-form__button"
+      >
         Search
       </button>
     </div>

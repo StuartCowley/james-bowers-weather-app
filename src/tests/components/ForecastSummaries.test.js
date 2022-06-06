@@ -8,7 +8,7 @@ describe("ForecastSummaries", () => {
       {
         date: 1111111111111,
         description: "Stub description",
-        icon: 800,
+        icon: "800",
         temperature: {
           max: 22,
           min: 12,
@@ -17,7 +17,7 @@ describe("ForecastSummaries", () => {
       {
         date: 2222222222222,
         description: "Stub description2",
-        icon: 211,
+        icon: "211",
         temperature: {
           max: 17,
           min: 10,
@@ -26,7 +26,7 @@ describe("ForecastSummaries", () => {
       {
         date: 3333333333333,
         description: "Stub description3",
-        icon: 602,
+        icon: "602",
         temperature: {
           max: 18,
           min: 11,
@@ -35,7 +35,7 @@ describe("ForecastSummaries", () => {
       {
         date: 4444444444444,
         description: "Stub description4",
-        icon: 781,
+        icon: "781",
         temperature: {
           max: 19,
           min: 12,
@@ -44,7 +44,7 @@ describe("ForecastSummaries", () => {
       {
         date: 5555555555555,
         description: "Stub description5",
-        icon: 721,
+        icon: "721",
         temperature: {
           max: 24,
           min: 13,
