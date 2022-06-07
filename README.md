@@ -103,11 +103,50 @@ function App() {
   );
 };
 ```
-> The JSX language which *React* apps are written in, means that the return statement can return a mixture of HTML and JavaScript - with the ability to call each `<Component />` in the order that they will appear on the page. Each component, or module, can be passed the `props` - properties - required for it to function, using `{JavaScript}` variables. Dot notation can also be used - as with `{location.city}` above, to access the `city` and `country` attributes of the `location` object. Conditional statements are also supported, meaning that the app can be rendered in different ways depending on the *state* of the components - more on that later.
+> The JSX language which *React* apps are written in, means that the return statement can return a mixture of HTML and JavaScript - with the ability to call each `<Component />` in the order that they will appear on the page, and assign `className` values which can be referred to for styling. Each component, or module, can be passed the `props` - properties - required for it to function, using `{JavaScript}` variables. Dot notation can also be used - as with `{location.city}` above, to access the `city` and `country` attributes of the `location` object. Conditional statements are also supported, meaning that the app can be rendered in different ways depending on the *state* of the components - more on that later.
 <br>
 
 ### LocationDetails
+The component in the App which appears first in the return statement's `<div>` is the `LocationDetails` component. This component is responsible for displaying either the current location - broken down into three props: `location.country` and `location.city` - and an `errorMessage` variable which returns an error message if none is found. We'll cover where those values originate from in a moment, but first, let's look at what the LocationDetails component is doing with them:
 
+```JavaScript
+function LocationDetails(props) {
+  const { city, country, errorMessage } = props;
+  return errorMessage ? (
+    <h1>{errorMessage}</h1>
+  ) : (
+    <h1>{`${city}, ${country}`}</h1>
+  );
+}
+```
+> `LocationDetails` is itself a function, which has `props` passed to it, as noted previously. The `props` are then destructured into the `city`, `country` and `errorMessage` variables, which are then used in conjunction with a conditional statement to render the component. In this case, if errorMessage is not `null`, then the `<h1>` element is rendered with the `errorMessage` as its text. Otherwise, the `<h1>` element is rendered with the `city` and `country` as its text, separated by a comma.
+<br>
+
+#### PropTypes Validation
+PropTypes is a library which comes bundled with *React* and is used to validate the data types of the props passed into the component. Once imported, PropTypes are defined at the end of the code, before the component is exported:
+
+```JavaScript
+import React from "react";
+import PropTypes from "prop-types";
+
+function LocationDetails(props) {...}
+
+LocationDetails.defaultProps = {
+  errorMessage: "",
+};
+
+LocationDetails.propTypes = {
+  city: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
+  errorMessage: PropTypes.string,
+};
+
+export default LocationDetails;
+```
+> Here, we are expecting the `city` and `country` props to be strings which are **required** for the component to render, and the `errorMessage` prop to also be a string - but this is not required, if the App has a valid location. The `defaultProps` object is also used to set default values for the props, in case they are not passed in. In this case, if all is working well and no error message is passed in, the `errorMessage` prop will be set to an empty string.
+<br>
+
+### GetForecast
 
 ## Examples of Use
 [In development]
