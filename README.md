@@ -3,14 +3,18 @@
 This project forms part of the final, FrontEnd module at [ManchesterCodes](https://github.com/mcrcodes). The goal is to produce a simple application which takes Weather data from an API and presents it to the user in a web app.
 
 ## Contents
-* [Languages & Technologies](#Languages--Technologies)
-* [Project Setup](#Project-Setup)
-
-* [Components & Scope of Functionalities](#Components--Scope-of-Functionalities)
-
-* [Examples of Use](#Examples-of-Use)
-* [Project Status](#Project-status)
-* [Sources & Credits](#Sources--credits)
+- [Languages & Technologies](#Languages--Technologies)
+- [Project Setup](#Project-Setup)
+- [Components & Scope of Functionalities](#Components--Scope-of-Functionalities)
+  - [The App Component](#The-App-Component)
+  - [LocationDetails](#LocationDetails)
+  - [Searchform](#Searchform)
+  - [getForecast](#getForecast)
+  - [ForecastDetails](#ForecastDetails)
+  - [ForecastSummaries & ForecastSummary](#ForecastSummaries--ForecastSummary)
+- [Examples of Use](#Examples-of-Use)
+- [Project Status](#Project-status)
+- [Sources & Credits](#Sources--credits)
 <hr>
 
 ## Languages & Technologies
@@ -458,8 +462,15 @@ function ForecastSummary(props) {
 <br>
 
 ## Examples of Use
-[In development]
+Whilst this particular project uses this code to display Weather forecasts, the structure of the App, and the separation of concerns into different modules, mean that this codebase could be used as a starting point for any kind of App which takes an array of data, and maps through it to show relevant information.
 
+*Consider the following:*
+**Video Streaming Service**
+> A video streaming service which presents thumbnails of TV Shows or Movies, with a Header Area showing more info (or a trailer!) relating to the currently selected video.
+
+**Social Media feed**
+> A social media feed which displays the latest posts from a particular social media platform, with a focus area to focus in on a particular post.
+<br>
 
 ## Project Status
 Complete ✅
