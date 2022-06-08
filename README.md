@@ -296,10 +296,106 @@ export default getForecast;
 > Once the endpoint has been updated, `.get` is used to make a new request. If this is successful, the `forecasts` data is assigned to `setForecasts`, the `location` is assigned to the `setLocation`, and today's date (which is the first forecast in the array) is assigned to `setSelectedDate`. If the request fails, a new `errorMessage` is assigned to `setErrorMessage` depending on the status resonse, or the outcome of the conditional statement.
 <br>
 
-### 
+### ForecastDetails
+So far, we have mostly looked at the functionality behind our App - most of which is is driven by the `< SearchForm />` component and `getForecast` function. In `getForecast`, we updated the `errorMessage` variable to hold a value if the request was unsuccessful - this binary (yes / no) presence of a message can be used in conjunction with a conditional statement to decide how the App renders:
+```JavaScript
+  return (
+    <div className="weather-app">
+      <LocationDetails
+        city={location.city}
+        country={location.country}
+        errorMessage={errorMessage}
+      />
+      <SearchForm
+        searchText={searchText}
+        setSearchText={setSearchText}
+        onSubmit={handleCitySearch}
+      />
+      {!errorMessage && (
+        <>
+          {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
+          <ForecastSummaries
+            forecasts={forecasts}
+            onForecastSelect={handleForecastSelect}
+          />
+        </>
+      )}
+    </div>
+  );
+```
+> As shown above, if the `errorMessage` variable does **not** contain any text, and if the `<ForecastDetails />` and `<ForecastSummaries />` hold values, they will both be rendered as expected. If the `errorMessage` variable **does** contain text, the `<ForecastDetails />` and `<ForecastSummaries />` will **not** be rendered, and *instead* the `<LocationDetails />` will be rendered with the `errorMessage` variable in place of the `city` and `country`.
 
+If the previous components were focused on retrieving the data (`location`, `date`, `errorMessage` etc.), then the `ForecastDetails` and `ForecastSummaries` components are all about how we present the data to the user. As such, save for some basic destructuring and date formatting at the beginning of the file, the rest of the module almost reads like an HTML document:
+```JavaScript
+import WeatherIcon from "react-icons-weather";
 
+function ForecastDetails({ forecast }) {
+  const { date, humidity, icon, temperature, wind } = forecast;
+  const formattedDate = new Date(date).toDateString().slice(0, 10);
+  return (
+    <div className="forecast-details__wrapper">
+      <div className="forecast-details__left">
+        <div className="forecast-details__icon">
+          <WeatherIcon name="owm" iconId={icon} />
+        </div>
+        <div
+          className="forecast-details__date"
+          data-testid="forecast-details__date"
+        >
+          {formattedDate}
+        </div>
+      </div>
+      <div className="forecast-details__right">
+        <div className="forecast-details__temperature">
+          <p className="forecast-details__heading">Temperature</p>
+          <p>Max: {temperature.max}°C</p>
+          <p>Min: {temperature.min}°C</p>
+        </div>
+        <div className="forecast-details__humidity">
+          <p>Humidity: {humidity}%</p>
+        </div>
+        <div className="forecast-details__wind">
+          <p className="forecast-details__heading">Wind</p>
+          <div className="forecast-details__wind-speed">
+            <p>Speed: {wind.speed}m/s</p>
+          </div>
+          <div className="forecast-details__wind-direction">
+            <p>Direction: {wind.direction.toUpperCase()}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
+export default ForecastDetails;
+```
+> Because we separated our concerns into separate modules, `<ForecastDetails />` doesn't contain much *logic* - instead, the main function of the module is to use the data which was retrieved by our other modules and arrange it on the page. You will notice that JSX code has been used here to insert the attributes which we destructured from `forecast`, into our `<div>` elements - i.e. `{temperature.max}`, `{wind.speed}`, etc.
+> Another noteworthy detail is the `className` attributes - these are used in conjunction with CSS stylesheets to style the elements on the page.
+
+Lastly, you will notice the `<WeatherIcon />` component, which is used to display the weather icon. This is a custom, third-party component which is used to display weather icons which are compatible with our API. The `name` attribute is used here to determine which set of icons to display - in this case, we are using **Open Weather Map** (`owm`) - and the `iconId` attribute is used to determine which weather icon to display (i.e. Sunny, Cloudy, etc).
+
+Lastly, it is important to validate the props which have been passed in to the component, using PropTypes to define exactly how we expect the data to look, in order for our component to function as expected:
+```JavaScript
+ForecastDetails.propTypes = {
+  forecast: PropTypes.shape({
+    date: PropTypes.number.isRequired,
+    icon: PropTypes.string.isRequired,
+    temperature: PropTypes.shape({
+      min: PropTypes.number,
+      max: PropTypes.number,
+    }).isRequired,
+    wind: PropTypes.shape({
+      speed: PropTypes.number,
+      direction: PropTypes.string,
+    }).isRequired,
+    humidity: PropTypes.number.isRequired,
+  }).isRequired,
+};
+```
+<br>
+
+### ForecastSummaries & ForecastSummary
 
 ## Examples of Use
 [In development]
