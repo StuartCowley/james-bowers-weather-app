@@ -465,10 +465,10 @@ function ForecastSummary(props) {
 Whilst this particular project uses this code to display Weather forecasts, the structure of the App, and the separation of concerns into different modules, mean that this codebase could be used as a starting point for any kind of App which takes an array of data, and maps through it to show relevant information.
 
 *Consider the following:*
-**Video Streaming Service**
+* **Video Streaming Service**
 > A video streaming service which presents thumbnails of TV Shows or Movies, with a Header Area showing more info (or a trailer!) relating to the currently selected video.
 
-**Social Media feed**
+* **Social Media feed**
 > A social media feed which displays the latest posts from a particular social media platform, with a focus area to focus in on a particular post.
 <br>
 
