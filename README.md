@@ -166,6 +166,7 @@ The next component in the App, and therefore the one which appears just after `<
   );
 ```
 > `<SearchForm />` takes three props: `searchText`, `setSearchText` and `onSubmit` - `onSubmit` is a function which gets called when the submit button is clicked, whereas the `searchText` and `setSearchText` props relate to the **state** of the component.
+<br>
 
 #### State
 State is a *React* feature which refers to the current *state* of components which deal with user input. State is defined in pairs at the beginning of the module, using the `useState()` hook - where `searchText` is the initial value of the state, and `setSearchText` is the function which updates the state. `onSubmit` is a function which is passed to the component as a prop, and tells the module what to do when the Submit button is pressed. The `useState()` hook itself can be used to define how the default data should be structured, as seen with `const [location, setLocation]`:
@@ -242,6 +243,60 @@ function App() {
 <br>
 
 ### getForecast
+Looking more closely, the getForecast function uses `axios` - a node package which enables us to make HTTP requests to the Weather API - to make requests and retrieve the forecast for the city entered by the user. It does this by taking the `searchText` *state* variable, as well as the four required *state setter* functions, and assigning them to an endpoint variable which equates to the `/forecast` endpoint of the Weather API:
+```JavaScript
+// getForecast.js
+import axios from "axios";
+
+const getForecast = (
+  searchText,
+  setErrorMessage,
+  setSelectedDate,
+  setForecasts,
+  setLocation
+) => {
+  let endpoint = "https://mcr-codes-weather.herokuapp.com/forecast";
+
+  ...
+
+export default getForecast;
+```
+
+The component takes the `searchText` variable and uses a conditional statement to update the endpoint with the city searched for by the user:
+```JavaScript
+// getForecast.js
+  ...
+
+  if (searchText) {
+    endpoint += `?city=${searchText}`;
+  }
+
+  return axios
+    .get(endpoint)
+    .then((response) => {
+      setSelectedDate(response.data.forecasts[0].date);
+      setForecasts(response.data.forecasts);
+      setLocation(response.data.location);
+    })
+    .catch((error) => {
+      const { status } = error.response;
+      if (status === 404) {
+        setErrorMessage("No such town or city, try again!");
+        console.error("Location is not valid", error);
+      }
+      if (status === 500) {
+        setErrorMessage("Oops, server error! Try again later.");
+        console.error("Server error", error);
+      }
+    });
+};
+
+export default getForecast;
+```
+> Once the endpoint has been updated, `.get` is used to make a new request. If this is successful, the `forecasts` data is assigned to `setForecasts`, the `location` is assigned to the `setLocation`, and today's date (which is the first forecast in the array) is assigned to `setSelectedDate`. If the request fails, a new `errorMessage` is assigned to `setErrorMessage` depending on the status resonse, or the outcome of the conditional statement.
+<br>
+
+### 
 
 
 
