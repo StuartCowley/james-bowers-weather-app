@@ -396,6 +396,66 @@ ForecastDetails.propTypes = {
 <br>
 
 ### ForecastSummaries & ForecastSummary
+There are now just two modules of our App that we have not yet looked at - and they work in parallel to display the 5-day look-ahead forecast to our user. `<ForecastSummaries />` is the last component which is rendered by the App component and - as with the `<WeatherIcon />` component in the previous section - `<ForecastSummary />` is not called within `<App />` itself, but from within the `<ForecastSummaries />` component:
+```JavaScript
+// ForecastSummaries.js
+function ForecastSummaries({ forecasts, onForecastSelect }) {
+  return (
+    <div className="forecast-summaries">
+      {forecasts &&
+        forecasts.map((forecast) => (
+          <ForecastSummary
+            key={forecast.date}
+            date={forecast.date}
+            description={forecast.description}
+            icon={forecast.icon.toString()}
+            onSelect={onForecastSelect}
+            temperature={forecast.temperature}
+          />
+        ))}
+    </div>
+  );
+}
+```
+> `<ForecastSummaries />` takes the passed in `forecasts` array, and maps through it to produce one `<ForecastSummary />` component for each item in the array, all contained within the single `<div>` which is rendered by `<ForecastSummaries />`.
+
+The `<ForecastSummary />` component takes the props for each item in the `forecasts` array and displays a summary of the forecast for that day.
+```JavaScript
+// ForecastSummary.js
+function ForecastSummary(props) {
+  const { date, description, icon, temperature, onSelect } = props;
+  const formattedDate = new Date(date).toDateString().slice(0, 10);
+
+  return (
+    <div className="forecast-summary" data-testid="forecast-summary">
+      <div className="forecast-summary__date">{formattedDate}</div>
+      <div className="forecast-summary__icon" data-testid="forecast-icon">
+        <WeatherIcon name="owm" iconId={icon} />
+      </div>
+      <div className="forecast-summary__maxTemp">
+        <p className="forecast-summary__maxTemp">{temperature.max}°C</p>
+      </div>
+      <div className="forecast-summary__description">{description}</div>
+      <button
+        type="button"
+        className="forecast-summary__more-details"
+        onClick={() => onSelect(date)}
+      >
+        More details
+      </button>
+    </div>
+  );
+}
+```
+> If the user wishes to find out more about a particular day's forecast, they can click on the 'More details' button, which, following the trail back to App.js, will call the `onForecastSelect` function, passing in the `date` of the forecast they wish to see more details about:
+```JavaScript
+// App.js
+  const handleForecastSelect = (date) => {
+    setSelectedDate(date);
+  };
+```
+> This function updates the *state* of `selectedDate`, which is passed back into `<ForecastDetails />` to display the details of the selected forecast.
+<br>
 
 ## Examples of Use
 [In development]
