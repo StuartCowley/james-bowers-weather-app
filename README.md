@@ -8,7 +8,7 @@ This project forms part of the final, FrontEnd module at [ManchesterCodes](https
 - [Components & Scope of Functionalities](#Components--Scope-of-Functionalities)
   - [The App Component](#The-App-Component)
   - [LocationDetails](#LocationDetails)
-  - [Searchform](#Searchform)
+  - [SearchForm](#SearchForm)
   - [getForecast](#getForecast)
   - [ForecastDetails](#ForecastDetails)
   - [ForecastSummaries & ForecastSummary](#ForecastSummaries--ForecastSummary)
